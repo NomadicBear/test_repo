@@ -1,0 +1,67 @@
+Prototype Working Notes
+------------------------
+Welp, what do we need here.
+
+<Graphics Output>
+A module that handles all console.write statements which display the game's output. Contains generic methods of displaying game data, which exists in the Graphics Manager.
+
+<Graphics Manager>
+A module that contains the meat and bones of the graphics layer - logic and data required to have a working GUI. Graphics output is either called by this or uses this for variable data to output
+
+<Input Controller>
+TODO: We'll probably need one to catch input from user and relay it to the Main Controller, but I don't see why the Main Controller can't just do it. Will revise later. Its mostly here to split stuff up into neat chunks.
+
+<Main Controller>
+Brain of the program. All program logic goes through here. Main() will probably have this and start the whole game with a Start().
+
+-----------------------------
+Main Controller Subcomponents
+-----------------------------
+
+<Turn Controller>
+Controls turn/round logic.
+
+<Overlay Generator>
+Creates Overlay objects to attach to Actions/Moves. 
+- Action overlay generation will need parameters like horizontal/vertical growth, generic shape (diamond, square, tunnel, etc.) provided from its parent Action object
+- Action overlays can also be custom made from a file - its more tedious but it allows for unique shapes 
+- Movement overlay generation will need a ref to a model of the game map, the location of the unit being moved, and Move object attributes like maximum move range, vertical movement limit, etc.
+
+<Action Generator>
+Creates Action objects to attach to Units.
+- This has to be created from an external file, there's really no two ways about it.
+- All units should have a standard Attack action (with their equipped weapon) generated with a hardcoded method
+
+<Move Generator>
+Creates Move objects to attach to Units.
+- Like Actions, moves have to be created from a file.
+- The exception is that all units should have a standard Move (walking) so that should have a hardcoded method
+
+<Map Generator>
+Creates a Map object made of Tiles from an external file. Could have a hardcoded method for the prototype.
+
+<Unit Generator>
+Creates Units using an external file. Really at the end of the day nothing should be hardcoded in, with the exception of enum-based Type Identifiers, since those will need custom logic.
+
+------------------------
+Data Structures
+------------------------
+
+<Unit>
+Other than the basic unit stats (hp, mp, etc.) it should also have
+- A list for Actions and another for Moves
+- A ref to its owner (Player) would be useful
+- Its current location (Tile)
+
+<Tile>
+Basic unit of a Map. Should have a x/y/z coord, and a reference to its occupant Unit, if any.
+
+<Action>
+Should have an Overlay, a target (Unit) and some RPGish stats for display and Overlay generation. 
+- TODO: Actually, I'm not too sure about needing a target; I imagine that should be used immediately by the Action Manager upon target selection.
+
+<Move>
+Mostly the same as Action. A Move Overlay, target (again, unsure) and probably some stats for display + overlay generation.
+
+<Map>
+A collection of Tiles. Will have a 3d array of Tiles (other structures up for debate), a tile count and x/y/z size for calculations and display.

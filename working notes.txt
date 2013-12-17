@@ -19,7 +19,8 @@ Main Controller Subcomponents
 -----------------------------
 
 <Turn Controller>
-Controls turn/round logic.
+Controls turn/round logic. Contains all the actual data, which it loans out as reference. 
+- TODO: Should I start considering thread safety? 
 
 <Overlay Generator>
 Creates Overlay objects to attach to Actions/Moves. 
@@ -43,6 +44,12 @@ Creates a Map object made of Tiles from an external file. Could have a hardcoded
 <Unit Generator>
 Creates Units using an external file. Really at the end of the day nothing should be hardcoded in, with the exception of enum-based Type Identifiers, since those will need custom logic.
 
+<Action Manager>
+Contains the methods for realizing Actions in the game. Could be a huge method, although using a class and breaking it down into sub methods would be cleaner. 
+
+<Move Manager>
+Contains the methods for realizing Moves in the game. 
+
 ------------------------
 Data Structures
 ------------------------
@@ -65,3 +72,6 @@ Mostly the same as Action. A Move Overlay, target (again, unsure) and probably s
 
 <Map>
 A collection of Tiles. Will have a 3d array of Tiles (other structures up for debate), a tile count and x/y/z size for calculations and display.
+
+<Player>
+Owner of Units. Contains a list<Units> owned, a unique id, a priority token (int) that allows for tiebreaks during initiative checks. 

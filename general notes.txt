@@ -1,0 +1,128 @@
+Current Project Vision
+----------------------------------
+
+Create a turn based, tile based, combat game where two players controller two units can duke it out.
+
+Simple Design & Game Mechanics
+----------------------------------
+This section has the bare necessities for a prototype, although knowing me I probably overdid some stuff so feel free to trim off the fat.
+
+- A Turn is a slice of time taken by a Unit
+- A Round is a collection of Turns
+- An Actor is the Unit currently in control - this definition is just here to help communication
+- Units can only take 1 Turn per Round
+- Units take turns based on initiative (like in DnD)
+- Ties in initiative are resolved by Player coin toss
+- For simplicity's sake, each Unit can take one Action and Move once per Turn
+- Action is anything done by the Unit other than movement
+- Only two options for Units: Attack (Action) and Move 
+- Available actions/movement locations are represented by an Overlay
+- Overlays mark the tiles that can be selected
+	> Movement Overlays are generated using a Unit's movement range and the Map
+		- They must be made dynamically since a tile's reachability is determined by its neighbours
+	> Action Overlays are generated independent of Unit location and terrain
+		- For example, a basic melee attack will always have a horizontal and vertical range of 1
+		- Even if there are no units in range, the overlay does not have to change
+		- This makes it important to differ between Movement and Action - Actions that involve movement (for example, an attack that moves a Unit adjacent to the target) must be handled with multiple stages
+- No fog of war; Players can see all Units on the map and all actions taken by opposition
+- No damage calculations; Attack simply removes x HP from the target
+- No Y axis used; Completely flat terrain
+- Graphics done in Console, followed by a barebones textureless attempt in Unity
+		
+Complex Design
+----------------------------------
+This section has some of the better design ideas I thought of so far, but are a little too complicated to be of any use until a prototype is done.
+
+<TRIGGER>
+- A Trigger is an effect attached to a Unit or Tile that activates an Action upon fulfilment of its Condition
+- Triggers can represent status effects (poison, burning, DoTs, debuffs, buffs), traps (explosive mines, bear traps) or even environmental hazards (deep water, open flames, poisonous swamp)
+- Triggers have:
+	> Visibility (Hidden-All, Hidden-Enemy, Visible-All, etc.)
+	> Type Identifier (For filter/removal purposes - for example, 'Poison' type triggers will be removed by an 'Antidote' action or 'Trap' type triggers are only visible by enemies with 'Detect Trap'; most likely an enum)
+	> Unique Identifier
+	> Owner (Unit; its turn is probably used as indicator for time based activation conditions)
+	> Duration (For use as trap, debuff, buff)
+	> Action(s)
+	> Activation Condition (Probably an enum used to determine when to fire off attached Actions)
+	
+<ACTION>
+- An Action is a generic act a unit can perform
+- Actions have:
+	> Actor (Unit performing the Action)
+	> Target(s) (Tile/Unit for passing on to Actions/Consequences)
+	> Trigger(s) (for attaching to targets)
+		- e.g. 'Poison Attack' Action attaches a 'Poisoned' trigger which activates a damaging Action every turn on the affected Unit
+		- e.g. 'Firewall' Action attaches a 'Wall of Flames' trigger which activates a damaging Action to Units moving into the affected Tile
+	> Action(s) 
+		- This means that they can be made of smaller Actions:
+		- e.g. Firing an AoE spell (Fireball)
+		- Actor targets a Tile or Unit (Action 1)
+		- Fireball hits the target and explodes, damaging adjacent Units (Action 2)
+		- Notice that Action 1 and 2 have different overlays; Overlay 1 determines the range of the fireball, while Overlay 2 determines the targets affected at the point of impact
+	> Overlay
+		- This determines tiles affected
+		- If the Action is a single-targeting, then the engine will prompt for a choice
+		- If the Action is multi-targeting, then 
+	> Type Identifier (Enum; For application purposes)
+	> Consequence(s) (Can have none)
+		- Probably stored in a stack or queue; order would impact how consequences are applied (e.g. reduce armor first or damage first?)
+		- See description below
+
+<CONSEQUENCE>
+- Consequences are the result of Actions, and are the only class that directly changes the game state
+- A Consequence can only affect a single target and a single attribute, have no conditional checks or logic built in, and are used purely to enact changes; any logic is taken care of in Actions/Triggers
+- Consequences are the leaf nodes in the infinite branches of Actions and Triggers
+- Consequences have:
+	> Target (Unit)
+	> Type Identifier (Enum; For application purposes)
+	> Integer (or Object Array, casting when appropriate - quite a hack tho)
+		- It should be possible to keep this simplified to an int and use a Type Identifier to push the complexity outside of the class.
+- TODO: Consider 'Knockback' as a form of Consequence - doesn't that mean an Action can move a Unit?
+		
+<MOVE>
+- A Move is an action a unit performs to change its location
+- Moves are technically a type of Action, but since they requires a different type of Overlay and probably can't use the Consequence class, they are classified separately
+- I haven't thought if Move should be a separate class, or should just be represented by a Move Overlay. I suppose if there are to be skills that involve movement, Move should be a sub of Action so it can be part of an Action chain
+- In fact, if Move is a sub of Action, a Unit can have more than one way to move. This way, movement can have more than just a static cost and there can be pros and cons to moving a certain way (say, walking vs. teleporting)
+- Moves have:
+	> Target (Tile)
+	> Type Identifier(s) (Enum; For determining overlay generation)
+	> Horizontal Movement Range (Distance)
+	> Vertical Movement Range (Height)
+	> Cost (Per Tile traversed?)
+	> Movement Overlay (For display and targeting purposes)
+	> Something akin to Consequence, which carries out the movement (Traversal?)
+
+<TRAVERSAL>
+- The result of a Move, much like how a Consequence is the result of an Action
+- Traversals have:
+	> Actor (Unit doing moving)
+	> Target (Tile)
+- TODO: Feels like I'm missing something here
+	
+Complex Game Mechanics
+----------------------------------
+This section covers game mechanics used in other games and arguments as to whether a turn-based, tile-based strategy RPG would benefit from using them, as well as the implications on design if they are implemented. Note that while this section is important to implementation/design, it is a TRAP.
+
+There is no end to discussing game mechanics.
+
+<FOG OF WAR VS FULL VISION>
+Full Vision
+- Less work for the developers
+- Less guesswork and imagination involved for players
+- Game is more akin to chess; every move can be thought through without any luck involved
+Fog of War
+- A lot more work involved - units have vision overlays, what to do when an attack range exceeds vision or is out of unit's LoS, etc.
+- Forces choices and guesswork
+- Scouting units will be necessary
+- Indirect fire units that require scouts will be a thing
+- Battles will be way more unpredictable for both sides
+- Unit lineups that rely on the element of surprise will be viable
+
+<COVER AND LINE OF SIGHT>
+<RESOURCE MANAGEMENT: ACTION POINTS, COOLDOWNS, STAMINA AND MANA>
+<DAMAGE CALCUATIONS AND POWER SCALING>
+<SURVIVABILITY: HP, ARMOR AND EVASION>
+<MELEE VS RANGE VS CASTER VS SUPPORT BENEFITS AND DRAWBACKS>
+<RANDOM MECHANICS: CRITICALS, DODGE, BLOCKS, MISSES>
+<ADVANCEMENT, GROWTH AND LEVELING SYSTEMS>

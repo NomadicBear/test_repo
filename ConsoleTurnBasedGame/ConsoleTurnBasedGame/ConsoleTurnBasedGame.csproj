@@ -41,6 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="Selection_Grid.cs" />
+    <Compile Include="Overlay_Generator.cs" />
+    <Compile Include="Turn_Controller.cs" />
+    <Compile Include="Overlay.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Move.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Tile.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="Main_Controller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

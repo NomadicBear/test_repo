@@ -1,1 +1,6 @@
 C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\bin\Debug\ConsoleTurnBasedGame.exe.config
+C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\obj\Debug\ConsoleTurnBasedGame.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\bin\Debug\ConsoleTurnBasedGame.exe
+C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\bin\Debug\ConsoleTurnBasedGame.pdb
+C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\obj\Debug\ConsoleTurnBasedGame.exe
+C:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\obj\Debug\ConsoleTurnBasedGame.pdb

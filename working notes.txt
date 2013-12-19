@@ -37,7 +37,7 @@ Creates Action objects to attach to Units.
 Creates Move objects to attach to Units.
 - Like Actions, moves have to be created from a file.
 - The exception is that all units should have a standard Move (walking) so that should have a hardcoded method
-
+s
 <Map Generator>
 Creates a Map object made of Tiles from an external file. Could have a hardcoded method for the prototype.
 
@@ -49,6 +49,9 @@ Contains the methods for realizing Actions in the game. Could be a huge method, 
 
 <Move Manager>
 Contains the methods for realizing Moves in the game. 
+
+<Unit Manager>
+Used for assembling units. Puts together Actions, Moves and Units into a complete Unit. It'll probably include parts like Weapons and Passives in the future.
 
 ------------------------
 Data Structures
@@ -63,15 +66,21 @@ Other than the basic unit stats (hp, mp, etc.) it should also have
 <Tile>
 Basic unit of a Map. Should have a x/y/z coord, and a reference to its occupant Unit, if any.
 
+<Selection Grid>
+An array of Tiles that represents a subset of tiles on the map. This subset can be used for highlighting and tile selection purposes. TODO: In my head this is just a list<Tile> with a fancy name. Decide if I want to keep this as a class - for now, it helps sort out my thoughts
+
 <Action>
-Should have an Overlay, a target (Unit) and some RPGish stats for display and Overlay generation. 
+Should have an Overlay, a target (Unit) and some RPGish stats for display and Overlay generation, and a Selection Grid. 
 - TODO: Actually, I'm not too sure about needing a target; I imagine that should be used immediately by the Action Manager upon target selection.
 
 <Move>
-Mostly the same as Action. A Move Overlay, target (again, unsure) and probably some stats for display + overlay generation.
+Mostly the same as Action. A Selection Grid, target (again, unsure) and probably some stats for display + overlay generation. Moves don't have Overlays since they don't have a fixed template/shape.
 
 <Map>
 A collection of Tiles. Will have a 3d array of Tiles (other structures up for debate), a tile count and x/y/z size for calculations and display.
 
 <Player>
 Owner of Units. Contains a list<Units> owned, a unique id, a priority token (int) that allows for tiebreaks during initiative checks. 
+
+<Overlay>
+An array of special objects which represents a template to be overlaid on the map. Its purpose is to aid in creating a Selection Grid. 

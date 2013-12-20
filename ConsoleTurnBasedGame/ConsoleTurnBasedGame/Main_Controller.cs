@@ -43,23 +43,30 @@ namespace ConsoleTurnBasedGame
 
         void initiationTest()
         {
-            //Create two players
+            //Create two players  - TODO: use a builder for this?
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
-            //Create two units
-            Unit unit1 = new Unit();
-            Unit unit2 = new Unit();
+            
             //Add players to array
             player_list = new Player[2]{player1, player2};
-            //Add units to players
+            
+            //Create two units
+            Unit unit1 = Unit_Builder.createTestUnit();
+            Unit unit2 = Unit_Builder.createTestUnit();
+
+            //Add units to players - TODO: use a builder for this?
             player1.unit_list.Add(unit1);
+            unit1.owner = player1;
             player2.unit_list.Add(unit2);
+            unit2.owner = player2;
+
             //Add units to turn list
             List<Unit> templist = new List<Unit>();
             templist.Add(unit1);
             templist.Add(unit2);
             turn_controller = new Turn_Controller(templist);
             templist.Clear();
+
             //Calculate overlays for each unit
             //Display: Game start - board, units, menus
             //

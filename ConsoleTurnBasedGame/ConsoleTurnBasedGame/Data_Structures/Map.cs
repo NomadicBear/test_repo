@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+//TODO: Make a Map_Builder and transfer the methods over
 namespace ConsoleTurnBasedGame
 {
     class Map

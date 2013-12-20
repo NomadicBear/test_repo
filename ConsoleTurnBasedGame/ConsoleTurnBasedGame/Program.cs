@@ -20,8 +20,9 @@ namespace ConsoleTurnBasedGame
             Console.ReadLine();
 
             string overlayPath = testDirectory + @"\testfiles\testoverlay.txt";
-            Overlay overlay = Overlay_Generator.createViaFile(overlayPath);
-            Overlay_Generator.testPrintOverlay(overlay);
+            Overlay overlay = Overlay_Builder.createViaFile(overlayPath);
+            Overlay_Builder.testPrintOverlay(overlay);
+             
             Console.ReadLine();
 
         }

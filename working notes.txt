@@ -17,32 +17,33 @@ Brain of the program. All program logic goes through here. Main() will probably 
 -----------------------------
 Main Controller Subcomponents
 -----------------------------
+NOTE: The Builders exist to ensure that their respective data structures are made verified and usable. The Managers exist to use/change the game board by using their respective 
 
 <Turn Controller>
 Controls turn/round logic. Contains all the actual data, which it loans out as reference. 
 - TODO: Should I start considering thread safety? 
 
-<Overlay Generator>
+<Overlay Builder>
 Creates Overlay objects to attach to Actions/Moves. 
 - Action overlay generation will need parameters like horizontal/vertical growth, generic shape (diamond, square, tunnel, etc.) provided from its parent Action object
 - Action overlays can also be custom made from a file - its more tedious but it allows for unique shapes 
 - Movement overlay generation will need a ref to a model of the game map, the location of the unit being moved, and Move object attributes like maximum move range, vertical movement limit, etc.
 
-<Action Generator>
+<Action Builder>
 Creates Action objects to attach to Units.
 - This has to be created from an external file, there's really no two ways about it.
 - All units should have a standard Attack action (with their equipped weapon) generated with a hardcoded method
 
-<Move Generator>
+<Move Builder>
 Creates Move objects to attach to Units.
 - Like Actions, moves have to be created from a file.
 - The exception is that all units should have a standard Move (walking) so that should have a hardcoded method
-s
-<Map Generator>
-Creates a Map object made of Tiles from an external file. Could have a hardcoded method for the prototype.
 
-<Unit Generator>
-Creates Units using an external file. Really at the end of the day nothing should be hardcoded in, with the exception of enum-based Type Identifiers, since those will need custom logic.
+<Map Builder>
+Creates a Map object made of Tiles from an external file. 
+
+<Unit Builder>
+Creates Units using an external file. Puts together Actions, Moves and Units into a complete Unit. It'll probably include parts like Weapons and Passives in the future.
 
 <Action Manager>
 Contains the methods for realizing Actions in the game. Could be a huge method, although using a class and breaking it down into sub methods would be cleaner. 
@@ -50,8 +51,14 @@ Contains the methods for realizing Actions in the game. Could be a huge method, 
 <Move Manager>
 Contains the methods for realizing Moves in the game. 
 
-<Unit Manager>
-Used for assembling units. Puts together Actions, Moves and Units into a complete Unit. It'll probably include parts like Weapons and Passives in the future.
+------------------------
+Miscellaneous (aka I'm too sick to figure out where this belongs)
+------------------------
+
+<Menu Builder>
+Takes data, returns menus. Needs access to all data, feeds output to graphics layer for display. Output isn't graphics, but rather something the graphics layer can interpret. A custom data structure for each different menu, perhaps. 
+- By the above this should belong in the Main Controller
+- An alternative is to have this belong in the Graphics Manager, so we can skip the need for custom structures for menus; this seems like the saner choice
 
 ------------------------
 Data Structures

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace ConsoleTurnBasedGame
 {
-    static class Overlay_Generator
+    static class Overlay_Builder
     {
         //This is a simple array of units representing a tile overlay generator
         //Overlays can be custom-made using a text representation
@@ -84,13 +84,13 @@ namespace ConsoleTurnBasedGame
             return null;
         }
 
-        public static Overlay createViaFile(String input_file)
+        public static Overlay createViaFile(String inputFile)
         {
             List<Overlay_Tile> temp_overlay = new List<Overlay_Tile>();
             int x_value = -1;
             int z_value = -1;
 
-            using (StreamReader reader = new StreamReader(input_file))
+            using (StreamReader reader = new StreamReader(inputFile))
             {
                 int current_x_value = -1;
                 int current_z_value = -1;

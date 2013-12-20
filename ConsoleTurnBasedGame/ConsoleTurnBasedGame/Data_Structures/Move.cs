@@ -12,5 +12,6 @@ namespace ConsoleTurnBasedGame
         public Selection_Grid selection_grid;
         public int horizontal_movement_range;
         public int vertical_movement_range;
+
     }
 }

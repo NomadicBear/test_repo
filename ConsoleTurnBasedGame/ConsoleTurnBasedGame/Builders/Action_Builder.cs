@@ -8,5 +8,14 @@ namespace ConsoleTurnBasedGame
 {
     class Action_Builder
     {
+        public static Move loadAction(string inputFile)
+        {
+            return null;
+        }
+
+        public static Move createTestAction()
+        {
+            return null;
+        }
     }
 }

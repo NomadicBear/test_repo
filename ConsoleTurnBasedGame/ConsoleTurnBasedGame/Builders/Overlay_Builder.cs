@@ -13,19 +13,19 @@ namespace ConsoleTurnBasedGame
         //Overlays can be custom-made using a text representation
         //Or generated using a template
 
-        public static void testPrintOverlay(Overlay input)
+        public static void testPrintOverlay(Overlay inputOverlay)
         {
             int i, j;
 
             //Initiate Overlay_Tile 2d array
-            Overlay_Tile[][] printArray = new Overlay_Tile[input.max_z][];
-            for (i = 0; i < input.max_z; i++)
+            Overlay_Tile[][] printArray = new Overlay_Tile[inputOverlay.max_z][];
+            for (i = 0; i < inputOverlay.max_z; i++)
             {
-                printArray[i] = new Overlay_Tile[input.max_x];
+                printArray[i] = new Overlay_Tile[inputOverlay.max_x];
             }
 
             //Build Overlay_Tile 2d array from 1d array
-            foreach (Overlay_Tile tile in input.overlay_map)
+            foreach (Overlay_Tile tile in inputOverlay.overlay_map)
             {
                 //input.max_x/z will always be an odd number
                 //Arrays start from 0, so diving by 2 gives you the middle due to int trunc
@@ -33,37 +33,37 @@ namespace ConsoleTurnBasedGame
 
                 if (tile.relative_x > 0)
                 {
-                    translated_x = (input.max_x / 2) - tile.relative_x;
+                    translated_x = (inputOverlay.max_x / 2) - tile.relative_x;
                 }
                 else if (tile.relative_x == 0)
                 {
-                    translated_x = (input.max_x / 2);
+                    translated_x = (inputOverlay.max_x / 2);
                 }
                 else
                 {
-                    translated_x = (input.max_x / 2) + (tile.relative_x * -1);
+                    translated_x = (inputOverlay.max_x / 2) + (tile.relative_x * -1);
                 }
 
                 if (tile.relative_z > 0)
                 {
-                    translated_z = (input.max_z / 2) - tile.relative_z;
+                    translated_z = (inputOverlay.max_z / 2) - tile.relative_z;
                 }
                 else if (tile.relative_z == 0)
                 {
-                    translated_z = (input.max_z / 2);
+                    translated_z = (inputOverlay.max_z / 2);
                 }
                 else
                 {
-                    translated_z = (input.max_z / 2) + (tile.relative_z * -1);
+                    translated_z = (inputOverlay.max_z / 2) + (tile.relative_z * -1);
                 }
 
                 printArray[translated_z][translated_x] = tile;
             }
 
             //Print Overlay_Tile 2d array
-            for (i = 0; i < input.max_z; i++)
+            for (i = 0; i < inputOverlay.max_z; i++)
             {
-                for (j = 0; j < input.max_x; j++)
+                for (j = 0; j < inputOverlay.max_x; j++)
                 {
                     if (printArray[i][j] != null)
                     {

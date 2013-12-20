@@ -45,6 +45,11 @@ Creates a Map object made of Tiles from an external file.
 <Unit Builder>
 Creates Units using an external file. Puts together Actions, Moves and Units into a complete Unit. It'll probably include parts like Weapons and Passives in the future.
 
+<Selection Grid Builder>
+Creates a Selection Grid using:
+- an Overlay from an Action + Map
+- Move + Map
+
 <Action Manager>
 Contains the methods for realizing Actions in the game. Could be a huge method, although using a class and breaking it down into sub methods would be cleaner. 
 

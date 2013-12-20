@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTurnBasedGame
+namespace ConsoleTurnBasedGame.Builders
 {
-    static class Move_Builder
+    static class Selection_Grid_Builder
     {
-        public static Move loadMove(string inputFile)
+        public static Selection_Grid createGrid(Action input)
         {
             return null;
         }
 
-        public static Move createTestMove()
+        public static Selection_Grid createGrid(Move input)
         {
             return null;
         }

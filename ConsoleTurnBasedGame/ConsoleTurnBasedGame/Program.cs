@@ -15,8 +15,8 @@ namespace ConsoleTurnBasedGame
             Console.ReadLine();
 
             string mapPath = testDirectory + @"\testfiles\testmap.txt";
-            Map testMap = new Map(mapPath);
-            testMap.testPrintMap();
+            Map testMap = Map_Builder.loadMap(mapPath);
+            Map_Builder.testPrintMap(testMap);
             Console.ReadLine();
 
             string overlayPath = testDirectory + @"\testfiles\testoverlay.txt";

@@ -16,7 +16,7 @@ namespace ConsoleTurnBasedGame
         //Create actions/moves/other misc. stuff (weapons, passives, etc.)
         //Attach extras to unit
         //Return unit
-        public static Unit loadUnit(string inputFile)
+        public static Unit loadUnit(string input)
         {
             return null;
         }

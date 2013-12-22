@@ -12,7 +12,6 @@ namespace ConsoleTurnBasedGame
         //This is a simple array of units representing a tile overlay generator
         //Overlays can be custom-made using a text representation
         //Or generated using a template
-
         public static void testPrintOverlay(Overlay inputOverlay)
         {
             int i, j;

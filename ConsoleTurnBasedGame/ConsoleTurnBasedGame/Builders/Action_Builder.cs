@@ -8,14 +8,24 @@ namespace ConsoleTurnBasedGame
 {
     class Action_Builder
     {
-        public static Move loadAction(string inputFile)
+        //Read external data/file
+        //Create new Action
+        //Set Action attributes
+        //Create Overlay by either file or template data (depends on Action data)
+        //Attach Overlay
+        //Return Action
+        public static Action loadAction(string inputFile)
         {
             return null;
         }
 
-        public static Move createTestAction()
+        //'basic attack' action for prototype use
+        public static Action createTestAction()
         {
-            return null;
+            string overlay_path = Environment.CurrentDirectory + @"\testfiles\basic_attack_overlay.txt";
+            Overlay new_overlay = Overlay_Builder.createViaFile(overlay_path);
+
+            return new Action(new_overlay, 10);
         }
     }
 }

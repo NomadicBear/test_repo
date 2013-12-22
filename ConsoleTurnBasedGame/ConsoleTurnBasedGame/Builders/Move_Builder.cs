@@ -8,6 +8,10 @@ namespace ConsoleTurnBasedGame
 {
     static class Move_Builder
     {
+        //Read external data/file
+        //Create new Move
+        //Set Action attributes
+        //Return Move
         public static Move loadMove(string inputFile)
         {
             return null;

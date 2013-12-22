@@ -23,9 +23,9 @@ namespace ConsoleTurnBasedGame
 
         public static Unit createTestUnit()
         {
-            Unit output = new Unit();
-            Action baseAttack = new Action();
-            Move baseMove = new Move();
+            Unit output = new Unit() ;
+            Action baseAttack = Action_Builder.createTestAction();
+            Move baseMove = Move_Builder.createTestMove();
 
             output.addAction(baseAttack);
             output.addMove(baseMove);

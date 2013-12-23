@@ -9,6 +9,8 @@ namespace ConsoleTurnBasedGame
 {
     static class Map_Builder
     {
+        static int tile_id_generator = 0;
+
         public static void testPrintMap(Map inputMap)
         {
             if (inputMap.tile_count > 0)
@@ -132,6 +134,9 @@ namespace ConsoleTurnBasedGame
                                 tile_map[current_y][current_z][current_x] = newTile;
                                 if (newTile != null)
                                 {
+                                    //Assigning a tile_id to newTile
+                                    tile_map[current_y][current_z][current_x].tile_id = tile_id_generator;
+                                    tile_id_generator++;
                                     tileCounter++;
                                 }
                                 current_x++;

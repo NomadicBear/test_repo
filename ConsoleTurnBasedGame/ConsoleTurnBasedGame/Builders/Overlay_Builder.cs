@@ -32,7 +32,7 @@ namespace ConsoleTurnBasedGame
 
                 if (tile.relative_x > 0)
                 {
-                    translated_x = (inputOverlay.max_x / 2) - tile.relative_x;
+                    translated_x = (inputOverlay.max_x / 2) + tile.relative_x;
                 }
                 else if (tile.relative_x == 0)
                 {
@@ -40,12 +40,12 @@ namespace ConsoleTurnBasedGame
                 }
                 else
                 {
-                    translated_x = (inputOverlay.max_x / 2) + (tile.relative_x * -1);
+                    translated_x = (inputOverlay.max_x / 2) - (tile.relative_x * -1);
                 }
 
                 if (tile.relative_z > 0)
                 {
-                    translated_z = (inputOverlay.max_z / 2) - tile.relative_z;
+                    translated_z = (inputOverlay.max_z / 2) + tile.relative_z;
                 }
                 else if (tile.relative_z == 0)
                 {
@@ -53,7 +53,7 @@ namespace ConsoleTurnBasedGame
                 }
                 else
                 {
-                    translated_z = (inputOverlay.max_z / 2) + (tile.relative_z * -1);
+                    translated_z = (inputOverlay.max_z / 2) - (tile.relative_z * -1);
                 }
 
                 printArray[translated_z][translated_x] = tile;
@@ -83,6 +83,7 @@ namespace ConsoleTurnBasedGame
             return null;
         }
 
+        //NOTE: Everything to the left/above the origin is negative valued, everything to the right and below is positive valued
         public static Overlay createViaFile(String inputFile)
         {
             List<Overlay_Tile> temp_overlay = new List<Overlay_Tile>();
@@ -131,24 +132,24 @@ namespace ConsoleTurnBasedGame
                                 newOverlay_Tile = new Overlay_Tile(current_x_value, current_z_value, current_y_value, current_direction);
                                 temp_overlay.Add(newOverlay_Tile);
                             }
-                            current_z_value--;
+                            current_z_value++;
                         }
-                        current_x_value--;
-                        current_z_value = z_value;
+                        current_x_value++;
+                        current_z_value = z_value * -1;
                     }
 
                     //Parsing variables
                     if (currentLine.StartsWith("x_value:"))
                     {
                         int.TryParse(currentLine.Substring(8), out x_value);
-                        current_x_value = x_value;
+                        current_x_value = x_value * -1;
                         Console.WriteLine("x_value:{0}", x_value);
                     }
 
                     if (currentLine.StartsWith("z_value:"))
                     {
                         int.TryParse(currentLine.Substring(8), out z_value);
-                        current_z_value = z_value;
+                        current_z_value = z_value * -1;
                         Console.WriteLine("z_value:{0}", z_value);
                     }
                 }

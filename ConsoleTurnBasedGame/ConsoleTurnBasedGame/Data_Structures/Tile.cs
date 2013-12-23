@@ -12,13 +12,19 @@ namespace ConsoleTurnBasedGame
         public int location_x, location_y, location_z;
         public Terrain terrain;
 
+        public int tile_id; //TODO: Determine how useful this is.. I can imagine it being used in building selection grids, but we'll see
+        
+
         public Tile(int x, int y, int z, Terrain newTerrain)
         {
             occupant = null;
             location_x = x;
             location_y = y;
             location_z = z;
+
             terrain = newTerrain;
+
+            tile_id = -1;
         }
 
         public Tile(int x, int y, int z)
@@ -27,7 +33,10 @@ namespace ConsoleTurnBasedGame
             location_x = x;
             location_y = y;
             location_z = z;
+
             terrain = Terrain.GRASSLAND;
+
+            tile_id = -1;
         }
 
     }

@@ -9,7 +9,9 @@ namespace ConsoleTurnBasedGame
 {
     class Map
     {
-        public Tile[][][] tile_map;
+        //TODO: Discover possible alternatives to 3d arrays
+        //Possibly a 2d array of Dictionary<int, Tile> where int is the y value?
+        public Tile[][][] tile_map; //NOTE: Array is ordered by y, z, x
         public int size_x, size_y, size_z;
         public int tile_count;
 
@@ -32,5 +34,9 @@ namespace ConsoleTurnBasedGame
             return tile_map[y][z][x];
         }
 
+        public Tile[] returnXZStack(int x, int z)
+        {
+            return null;
+        }
     }
 }

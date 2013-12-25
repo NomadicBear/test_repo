@@ -60,12 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Action_Builder.cs" />
-    <Compile Include="Builders\Selection_Grid_Builder.cs" />
+    <Compile Include="Builders\Move_Grid_Builder.cs" />
+    <Compile Include="Data_Structures\Move_Grid.cs" />
+    <Compile Include="Builders\Action_Grid_Builder.cs" />
     <Compile Include="Builders\Map_Builder.cs" />
     <Compile Include="Builders\Move_Builder.cs" />
     <Compile Include="Builders\Unit_Builder.cs" />
     <Compile Include="Data_Structures\Action.cs" />
-    <Compile Include="Data_Structures\Selection_Grid.cs" />
+    <Compile Include="Data_Structures\Action_Grid.cs" />
     <Compile Include="Builders\Overlay_Builder.cs" />
     <Compile Include="Turn_Controller.cs" />
     <Compile Include="Data_Structures\Overlay.cs" />

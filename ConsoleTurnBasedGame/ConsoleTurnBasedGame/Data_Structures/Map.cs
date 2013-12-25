@@ -11,6 +11,7 @@ namespace ConsoleTurnBasedGame
     {
         //TODO: Discover possible alternatives to 3d arrays
         //Possibly a 2d array of Dictionary<int, Tile> where int is the y value?
+        //A simply better way would be to use a Tile[], and write methods to insert/retrieve via transforms
         public Tile[][][] tile_map; //NOTE: Array is ordered by y, z, x
         public int size_x, size_y, size_z;
         public int tile_count;

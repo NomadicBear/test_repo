@@ -99,7 +99,7 @@ This section has some of the better design ideas I thought of so far, but are a 
 	> Actor (Unit doing moving)
 	> Target (Tile)
 - TODO: Feels like I'm missing something here
-	
+
 Complex Game Mechanics
 ----------------------------------
 This section covers game mechanics used in other games and arguments as to whether a turn-based, tile-based strategy RPG would benefit from using them, as well as the implications on design if they are implemented. Note that while this section is important to implementation/design, it is a TRAP.
@@ -126,3 +126,10 @@ Fog of War
 <MELEE VS RANGE VS CASTER VS SUPPORT BENEFITS AND DRAWBACKS>
 <RANDOM MECHANICS: CRITICALS, DODGE, BLOCKS, MISSES>
 <ADVANCEMENT, GROWTH AND LEVELING SYSTEMS>
+
+Misc Design Stuff
+----------------------------------
+
+<Action-Consequence-State Log>
+
+A-C-S is the basic cycle which a game follows. A Unit takes action, consequences are realized, the result is a new state. By logging each of those steps, its possible to completely recreate a game.

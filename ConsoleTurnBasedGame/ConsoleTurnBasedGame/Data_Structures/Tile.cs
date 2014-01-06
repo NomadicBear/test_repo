@@ -12,7 +12,7 @@ namespace ConsoleTurnBasedGame
         public int location_x, location_y, location_z;
         public Terrain terrain;
 
-        public int tile_id; //TODO: Determine how useful this is.. I can imagine it being used in building selection grids, but we'll see
+        public int tile_id; //TODO: Ensure this isn't null ever
         
 
         public Tile(int x, int y, int z, Terrain newTerrain)
@@ -39,6 +39,19 @@ namespace ConsoleTurnBasedGame
             tile_id = -1;
         }
 
+        //TODO: Confirm this works
+        public override int GetHashCode()
+        {
+            return tile_id.GetHashCode();
+        }
+
+        //TODO: Confirm this works
+        public override bool Equals(object obj)
+        {
+            Tile tile_object = obj as Tile;
+
+            return this.GetHashCode() == tile_object.GetHashCode();
+        }
     }
 
     enum Terrain

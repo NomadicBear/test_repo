@@ -10,9 +10,18 @@ namespace ConsoleTurnBasedGame
     //Also if using stamina/ap system, Move will need to copy those since they update every turn
     class Move
     {
-        public Selection_Grid selection_grid;
+        public Move_Grid move_grid;
         public int horizontal_movement_range;
         public int vertical_movement_range;
+        public int move_cost;
         //More stats like 'move type' to represent sprinting, walking, crawling, flying, etc.?
+
+        public Move()
+        {
+            move_grid = new Move_Grid();
+            horizontal_movement_range = 1;
+            vertical_movement_range = 1;
+            move_cost = 1;
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace ConsoleTurnBasedGame.Builders
                         currentTile = inputMap.returnTile(current_x_value, current_y_value, current_z_value);
                         if (currentTile != null)
                         {
-                            output.grid.Add(currentTile);
+                            output.addTile(currentTile);
                         }
                     }
                 }
@@ -45,7 +45,7 @@ namespace ConsoleTurnBasedGame.Builders
                         currentTile = inputMap.returnTile(current_x_value, current_y_value, current_z_value);
                         if (currentTile != null)
                         {
-                            output.grid.Add(currentTile);
+                            output.addTile(currentTile);
                         }
                     }
                 }
@@ -57,7 +57,7 @@ namespace ConsoleTurnBasedGame.Builders
                         currentTile = inputMap.returnTile(current_x_value, current_y_value, current_z_value);
                         if (currentTile != null)
                         {
-                            output.grid.Add(currentTile);
+                            output.addTile(currentTile);
                         }
                     }
                 }
@@ -67,7 +67,7 @@ namespace ConsoleTurnBasedGame.Builders
                     currentTile = inputMap.returnTile(current_x_value, current_y_value, current_z_value);
                     if (currentTile != null)
                     {
-                        output.grid.Add(currentTile);
+                        output.addTile(currentTile);
                     }
                 }
             }

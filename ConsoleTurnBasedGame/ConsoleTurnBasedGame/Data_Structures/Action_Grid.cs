@@ -9,19 +9,24 @@ namespace ConsoleTurnBasedGame
     //TODO: Decide if there's anything else I want to add to this class that a List can't do
     class Action_Grid
     {
-        public List<Action_Tile> grid; //TODO: Could be an array, decide later
+        public List<Tile> tile_selection_list; //TODO: Could be an array, decide later
+        public List<Unit> unit_selection_list;
 
         public Action_Grid()
         {
-            
+            tile_selection_list = new List<Tile>();
+            unit_selection_list = new List<Unit>();
+        }
+
+        public void addTile(Tile newTile)
+        {
+            tile_selection_list.Add(newTile);
+
+            if (newTile.occupant != null)
+            {
+                unit_selection_list.Add(newTile.occupant);
+            }
         }
     }
 
-    class Action_Tile
-    {
-        Tile reference_tile;
-        int distance_from_origin;
-        int travel_cost;    //distance and cost may not end up being the same, hence the need for this
-        Tile[] shortest_path;    //every key tile (where a change in direction occurs or move skill is used) on the way to this
-    }
 }

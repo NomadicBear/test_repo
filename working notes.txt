@@ -66,6 +66,14 @@ Takes data, returns menus. Needs access to all data, feeds output to graphics la
 - By the above this should belong in the Main Controller
 - An alternative is to have this belong in the Graphics Manager, so we can skip the need for custom structures for menus; this seems like the saner choice
 
+<Custom Move Queue>
+I need a better name for this. Basically what this does is enable custom pathing. If someone wants his unit to take a long way around to avoid being spotted or traps or w/e the reason, he can opt to construct his own path.
+- This will need a Queue of Move, each with their own Move Grid
+- Each time the custom path is extended, a new Move is made and added to the queue using the values of the previous Move
+	> For example, a Unit moves 2 squares N then decides to turn E and move another 2 squares.
+	> The first move would be using the original Move; the second would have a new move with 2 horizontal move range deducted
+NOTE: This is just an idea - not to be implemented until basic stuff are done.
+
 ------------------------
 Data Structures
 ------------------------

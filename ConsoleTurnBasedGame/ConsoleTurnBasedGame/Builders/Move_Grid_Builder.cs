@@ -19,9 +19,7 @@ namespace ConsoleTurnBasedGame.Builders
         //TODO: Consider using threads? It will involve making Map threadsafe, but otherwise it seems like a good idea since it would divide the work up 4 ways minimum
         public static Move_Grid createGrid(Move inputMove, Map inputMap, Tile origin)
         {
-            //HashSet<Tile> tracker = new HashSet<Tile>(); //Keeps track of what tiles have been explored
             Move_Grid output = new Move_Grid();
-
             Stack<Tile> travel_stack = new Stack<Tile>();
             Tile[] neighbours = inputMap.getNeighbours(origin);
 

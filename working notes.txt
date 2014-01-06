@@ -1,3 +1,31 @@
+TODO LIST
+------------------------
+Overlay Builder (DONE)
+Overlay Builder Testing (DONE)
+Action Builder (DONE)
+Action Builder Testing (DONE)
+Action_Grid Builder (DONE)
+Action_Grid Testing (DONE)
+Map Builder (DONE)
+Map Testing (DONE)
+Move_Grid Builder (DONE)
+Move_Grid Testing 
+Move Builder 
+Move Builder Testing 
+Unit Builder
+Unit Builder Testing
+Turn Controller
+Turn Controller Testing
+Menu Builder(s)
+Menu Builder(s) Testing
+Output Handler
+Output Handler Testing
+Board Controller
+Board Controller Testing
+Input Handler
+Input Handler Testing
+--> Prototype Works!
+
 Prototype Working Notes
 ------------------------
 Welp, what do we need here.

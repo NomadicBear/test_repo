@@ -79,7 +79,7 @@ namespace ConsoleTurnBasedGame.Builders
                         }
                         else
                         {
-                            //old path was better
+                            //old path was better; dead end
                             travel_stack.Pop();
                             branch_out = false;
                         }
@@ -113,6 +113,7 @@ namespace ConsoleTurnBasedGame.Builders
 
             }
 
+            return output;
         }
 
     }

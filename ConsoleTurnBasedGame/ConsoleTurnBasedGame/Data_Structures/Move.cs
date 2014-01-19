@@ -18,7 +18,7 @@ namespace ConsoleTurnBasedGame
 
         public Move()
         {
-            move_grid = new Move_Grid();
+            move_grid = null;
             horizontal_movement_range = 1;
             vertical_movement_range = 1;
             move_cost = 1;

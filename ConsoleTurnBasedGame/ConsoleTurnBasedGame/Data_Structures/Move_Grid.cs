@@ -59,7 +59,7 @@ namespace ConsoleTurnBasedGame
             return -1;
         }
 
-        private class Selection_Data
+        public class Selection_Data
         {
             public int distance_from_origin;
             public int travel_cost;    //distance and cost may not end up being the same, hence the need for this

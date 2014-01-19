@@ -67,9 +67,46 @@ namespace ConsoleTurnBasedGame
             turn_controller = new Turn_Controller(templist);
             templist.Clear();
 
-            //Calculate overlays for each unit
-            //Display: Game start - board, units, menus
-            //
+            //Turn loop start
+            bool game_over = false;
+            while (!game_over)
+            {
+                Player current_player = turn_controller.currentPlayer;
+
+                //Hand over turn to player 
+
+
+                //Calculate overlays for each unit
+
+
+                //Display: board, units, menus
+
+
+                //Input loop start
+
+
+                //Wait for player input
+
+
+                //Process input - update display, update board, update overlays
+
+
+                //End unit action, back to loop
+
+
+                //End unit turn, end input loop
+
+
+                //End player turn, back to loop
+
+
+                //End game, end turn loop
+
+            }
+
+            //Display winner
+
+
         }
     }
 }

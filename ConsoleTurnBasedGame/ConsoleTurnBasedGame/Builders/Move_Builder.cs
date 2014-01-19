@@ -19,7 +19,7 @@ namespace ConsoleTurnBasedGame
 
         public static Move createTestMove()
         {
-            return null;
+            return new Move();
         }
     }
 }

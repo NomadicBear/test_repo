@@ -3,28 +3,96 @@ TODO LIST
 Overlay Builder (DONE)
 Overlay Builder Testing (DONE)
 Action Builder (DONE)
-Action Builder Testing (DONE)
+Action Builder Testing 
 Action_Grid Builder (DONE)
-Action_Grid Testing (DONE)
+Action_Grid Testing
 Map Builder (DONE)
 Map Testing (DONE)
 Move_Grid Builder (DONE)
 Move_Grid Testing 
-Move Builder 
+Move Builder (DONE)
 Move Builder Testing 
-Unit Builder
+Unit Builder (DONE)
 Unit Builder Testing
 Turn Controller
 Turn Controller Testing
+Board Controller
+Board Controller Testing
 Menu Builder(s)
 Menu Builder(s) Testing
 Output Handler
 Output Handler Testing
-Board Controller
-Board Controller Testing
 Input Handler
 Input Handler Testing
 --> Prototype Works!
+
+PROTOTYPE CONTROLS
+------------------------
+Q: Previous
+E: Next
+R: Zoom Out
+F: Zoom In
+WASD: Movement Keys
+Space: Accept
+Esc: Cancel
+1234: Optionals
+
+DISPLAY PROTOTYPE
+------------------------
+Map the map the screenspace 1 to 1
+Default by drawing units - if no unit on tile, draw tile instead
+
+====================================================================================================
+Turn XX: Player X in Control
+====================================================================================================
+																	 |                              
+     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9     |	 Attack	 
+	 1																 |	 Class Action
+	 2																 |	 Move
+	 3																 |	 Items
+	 4																 |	 Wait
+	 5																 |	 End Turn
+	 6																 |	 Retreat
+	 7																 |
+	 8																 |------------------------------
+	 9																 |
+	 0																 |	 Unit X
+	 1																 |	 HP: XXX/XXX
+	 2																 |	 SP: XXX/XXX
+	 3																 |	 AP: XXX/XXX
+	 4																 |	 Effects:
+	 5																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 6																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 7																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 8																 |	 XXX(XX/XXX), XXX(XX/XXX)
+	 9																 |
+	 0																 |------------------------------
+	 1																 |
+	 2																 |	 Unit X
+	 3																 |	 HP: XXX/XXX
+	 4																 |	 SP: XXX/XXX
+	 5																 |	 Effects:
+	 6																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 7																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 8																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 9																 |	 XXX(XX/XXX), XXX(XX/XXX),
+	 																 |
+====================================================================================================
+Total
+Rows: 35
+Columns: 100
+
+Unit Menu (Not including separators)
+Rows: 9
+Columns: 30
+
+Unit Stats (Not Including separators)
+Rows: 11
+Columns: 30
+
+Map (Not including spacing)
+Rows: 30
+Columns: 59 ((30 * 2) - 1)
 
 Prototype Working Notes
 ------------------------

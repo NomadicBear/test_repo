@@ -9,7 +9,7 @@ namespace ConsoleTurnBasedGame
     class Action
     {
         public Overlay overlay;
-        public Selection_Grid selection_grid;
+		public Action_Grid selection_grid;
         public int attack_power;
 
         public Action(Overlay newOverlay, int newAttack_power)

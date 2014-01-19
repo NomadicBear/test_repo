@@ -12,7 +12,14 @@ namespace ConsoleTurnBasedGame
         int turn_counter;
         List<Unit> turn_list;
         //List<Unit> standby_list;
-        Unit currentUnit;
+        public Unit currentUnit { get; private set; }
+        public Player currentPlayer
+        {
+            get
+            {
+                return currentUnit.owner;
+            }
+        }
 
         //WARNING: This logic is controlled from OUTSIDE of this class
         //The game starts
@@ -24,11 +31,6 @@ namespace ConsoleTurnBasedGame
         //When a unit finishes its turn, it goes into the standbylist
         //If a unit decides to wait on another unit, it is readded to the turn list - delayTurn()
         //When turn list is expended, the turn is over
-
-        public void orderUnits()
-        {
-            //unit_list.Sort(new CompareInitiative());
-        }
 
         public Turn_Controller()
         {

@@ -168,7 +168,6 @@ namespace ConsoleTurnBasedGame
             return null;
         }
 
-
         public enum Overlay_Template
         {
             DIAMOND,    //A diamond shape surrounding the origin

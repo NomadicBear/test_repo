@@ -1,0 +1,15 @@
+size_x:10
+size_y:3
+size_z:10
+level:0
+G G G G G G G G G G
+G P P P P P P P P G
+G P G G G G G G P G
+G P G W W W W G P G
+G P G W G G W G P G
+G P G W G G W G P G
+G P G W W W W G P G
+G P G G G G G G P G
+G P P P P P P P P G
+G G G G G G G G G G
+endlevel

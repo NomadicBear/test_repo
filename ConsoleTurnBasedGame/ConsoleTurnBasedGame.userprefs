@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleTurnBasedGame\Program.cs">
     <Files>
       <File FileName="ConsoleTurnBasedGame\Builders\Action_Grid_Builder.cs" Line="1" Column="1" />
       <File FileName="ConsoleTurnBasedGame\Builders\Move_Builder.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\Data_Structures\Move_Grid.cs" Line="46" Column="59" />
-      <File FileName="c:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\Data_Structures\Action.cs" Line="18" Column="41" />
-      <File FileName="ConsoleTurnBasedGame\Program.cs" Line="15" Column="32" />
+      <File FileName="c:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\Data_Structures\Move_Grid.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\John\Documents\GitHub\test_repo\ConsoleTurnBasedGame\ConsoleTurnBasedGame\Data_Structures\Action.cs" Line="1" Column="1" />
+      <File FileName="ConsoleTurnBasedGame\Program.cs" Line="17" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
